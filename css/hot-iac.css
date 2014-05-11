@@ -61,3 +61,73 @@
 #hot-ip .col-sm-9.gl-image {
 	padding-left: 0 !important;
 }
+
+/** Overlays **/
+
+#hot-ip,
+#hot-ip .overlay-image {
+	position: relative;
+}
+
+#hot-ip #lt {
+	position: absolute;
+	top:0;
+	left:15px;
+}
+
+#hot-ip #lc {
+	position: absolute;
+	top:50%;
+	left:15px;
+}
+
+#hot-ip #lb {
+	position: absolute;
+	bottom: 0;
+	left:15px;
+}
+
+#hot-ip #ct {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top:0;
+	left: 0;
+	right: 0;
+}
+
+#hot-ip #cc {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top:50%;
+	left: 0;
+	right: 0;
+}
+
+#hot-ip #cb {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	bottom:0;
+	left: 0;
+	right: 0;
+}
+
+#hot-ip #rt {
+	position: absolute;
+	top:0;
+	right:15px;
+}
+
+#hot-ip #rc {
+	position: absolute;
+	top:50%;
+	right:15px;
+}
+
+#hot-ip #rb {
+	position: absolute;
+	bottom: 0;
+	right:15px;
+}

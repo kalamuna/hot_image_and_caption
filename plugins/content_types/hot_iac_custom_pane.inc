@@ -234,18 +234,16 @@ function hot_iac_custom_pane_edit_form($form, &$form_state) {
     '#suffix' => '</div></div>',
   );
 
-
-
   if (module_exists('token')) {
-    $form[$module]['token_help'] = array(
+    $form['hot_image_and_caption']['token_help'] = array(
       '#title' => t('Replacement patterns'),
       '#type' => 'fieldset',
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
     );
-    $form[$module]['token_help']['help'] = array(
+    $form['hot_image_and_caption']['token_help']['help'] = array(
       '#theme' => 'token_tree',
-      '#token_types' => array($settings->token_type),
+      '#token_types' => 'all',
     );
   }
 
@@ -273,6 +271,7 @@ function hot_iac_custom_pane_render($subtype, $conf, $args, $contexts) {
   $file = file_load($image);
   $captiontitle = ctools_context_keyword_substitute($conf['captiontitle'], array(), $contexts);
   $captiontext = ctools_context_keyword_substitute($conf['captiontext'], array(), $contexts);
+  $layout = substr($conf['captionlayout'], 0, 7);
 
   if ($conf['obheight'] != '' || $conf['obwidth'] != '') {
     $dimension = '';
@@ -302,6 +301,29 @@ function hot_iac_custom_pane_render($subtype, $conf, $args, $contexts) {
     }
   } else {
     $padding = FALSE;
+  }
+
+  if ($layout == 'OVERLAY') {
+    $overlay = '';
+    if ($conf['captionlayout'] == 'OVERLAY - Left Top') {
+      $overlay = ' id="lt"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Left Center') {
+      $overlay = ' id="lc"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Left Bottom') {
+      $overlay = ' id="lb"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Center Top') {
+      $overlay = ' id="ct"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Center') {
+      $overlay = ' id="cc"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Center Bottom') {
+      $overlay = ' id="cb"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Right Top') {
+      $overlay = ' id="rt"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Right Center') {
+      $overlay = ' id="rc"';
+    } elseif ($conf['captionlayout'] == 'OVERLAY - Right Bottom') {
+      $overlay = ' id="rb"';
+    }
   }
 
   if($conf['captionlayout'] == 'GRID - Left w/ BG') {
@@ -336,6 +358,22 @@ function hot_iac_custom_pane_render($subtype, $conf, $args, $contexts) {
                         </div>';
 
     return $block;    
+  } elseif ($layout == 'OVERLAY') {
+    $block = new stdClass();
+    $block->title = t('<none>'); // This will be overridden by the user within the panel options.
+    $block->content = '<div class="container" id="hot-ip">
+                        <div class="row">
+                        <div class="col-md-12 col-sm-12 overlay-image">
+                        <img src="' . image_style_url($conf["imagestyles"],$file->uri) . '" />
+                        <div class="overlay-ip" ' . $overlay . ' style="background-color:' . $conf['captionbg'] . ';' . $dimension . $padding . '">
+                        <' . $conf['captiontitleclass'] . ' style="color:' . $conf['captiontitlecolor'] . '">' . $captiontitle . '</' . $conf['captiontitleclass'] . '>
+                        <' . $conf['captiontextclass'] . ' style="color:' . $conf['captiontextcolor'] . '">'. $captiontext . '</' . $conf['captiontextclass'] . '>
+                        </div>
+                        </div>
+                        </div>
+                        </div>';
+
+    return $block; 
   }
 }
 
