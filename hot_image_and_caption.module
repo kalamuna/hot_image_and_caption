@@ -1,0 +1,17 @@
+<?php
+
+
+function hot_image_and_caption_preprocess_page(&$variables) {
+   $module_path = drupal_get_path('module', 'hot_image_and_caption');
+   drupal_add_css($module_path . '/css/hot-iac.css');
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function hot_image_and_caption_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/' . $plugin_type;
+  }
+}
+

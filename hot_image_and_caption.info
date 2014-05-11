@@ -1,0 +1,9 @@
+name = HOT Image Pane w/ Caption!
+description = Fancy Image Pane displaying image style based media with a configurable caption
+package = HotApps!
+core = 7.x
+version = 7.x-1.0-alpha1
+project = hot_image_and_caption
+dependencies[] = ctools
+dependencies[] = image
+dependencies[] = text

@@ -1,0 +1,63 @@
+/** HOT IMAGE PANE CSS **/
+
+/** Pane Stylings **/
+#hot-iac-custom-pane-edit-form .hot-ip-top {
+	padding-top:5px;
+	padding-bottom: 5px;
+	margin-top: 10px;
+	background-color: #DBE4F0;
+	border: 1px solid #B0C4DE;
+}
+
+#hot-iac-custom-pane-edit-form .hot-ip-middle {
+	padding-top:5px;
+	padding-bottom: 5px;
+	background-color: #F2F2F2;
+	border-top: 1px solid #E3E3E3;
+}
+
+#hot-iac-custom-pane-edit-form .hot-ip-middle1 {
+	padding-top:5px;
+	padding-bottom: 5px;
+	background-color: #F2F2F2;
+	border-bottom: 1px solid #E3E3E3;
+}
+
+#hot-iac-custom-pane-edit-form .hot-ip-bottom {
+	padding-top:5px;
+	padding-bottom: 5px;
+	background-color: #DBE4F0;
+	border-top: 1px solid #B0C4DE;
+}
+
+#hot-iac-custom-pane-edit-form .hot-ip-bottom1 {
+	padding-top:5px;
+	padding-bottom: 5px;
+	background-color: #DBE4F0;
+}
+
+#hot-iac-custom-pane-edit-form .hot-ip-bottom2 {
+	padding-top:5px;
+	padding-bottom: 5px;
+	background-color: #DBE4F0;
+}
+
+#hot-iac-custom-pane-edit-form .hot-ip-bottom3 {
+	padding-top:5px;
+	padding-bottom: 5px;
+	background-color: #DBE4F0;
+	border-bottom: 1px solid #B0C4DE;
+	margin-bottom: 10px;
+}
+
+/** Display Tweaks **/
+
+#hot-ip .col-md-9.gr-image,
+#hot-ip .col-sm-9.gr-image {
+	padding-right: 0 !important;
+}
+
+#hot-ip .col-md-9.gl-image,
+#hot-ip .col-sm-9.gl-image {
+	padding-left: 0 !important;
+}
