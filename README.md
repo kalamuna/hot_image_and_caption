@@ -1,6 +1,8 @@
 HOT Image Pane w/ Caption!
 ==============
 
+**IMAGE DOESNT SEEM TO LOAD HERE**
+
 This Fancy module will use an image, apply an image style and gives options for different Overlays / Background captions.  Almost everything can be done in this panel.  Very little external CSS will be needed.  Great for when you need a quick image with a caption on it.  
 
 What this module is capable of:
